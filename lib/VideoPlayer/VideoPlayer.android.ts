@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { noop } from 'lodash';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
   requireNativeComponent,
-  CameraRoll,
   UIManager,
   findNodeHandle,
-  ViewPropTypes
+  // ViewPropTypes
 } from 'react-native';
 import { getActualSource } from '../utils';
 
 const ProcessingUI = UIManager.getViewManagerConfig('RNVideoProcessing');
 
-export class VideoPlayer extends Component {
+type Props = {
+    // ...ViewPropTypes,
+    play?: boolean,
+    replay?: boolean,
+    volume?: number,
+    onChange?: Function,
+    currentTime?: number,
+    endTime?: number,
+    startTime?: number,
+    progressEventDelay?: number,
+    source: string,
+    resizeMode?: string
+  }
+export class VideoPlayer extends Component<Props> {
   static Constants = {
     resizeMode: {
       CONTAIN: ProcessingUI.Constants.ScaleAspectFit,
@@ -25,24 +33,36 @@ export class VideoPlayer extends Component {
       NONE: ProcessingUI.Constants.ScaleNone
     }
   };
-  static propTypes = {
-    ...ViewPropTypes,
-    play: PropTypes.bool,
-    replay: PropTypes.bool,
-    volume: PropTypes.number,
-    onChange: PropTypes.func,
-    currentTime: PropTypes.number,
-    endTime: PropTypes.number,
-    startTime: PropTypes.number,
-    progressEventDelay: PropTypes.number,
-    source: PropTypes.string.isRequired,
-    resizeMode: PropTypes.string
-  };
+  // static propTypes = {
+  //   // ...ViewPropTypes,
+  //   play: PropTypes.bool,
+  //   replay: PropTypes.bool,
+  //   volume: PropTypes.number,
+  //   onChange: PropTypes.func,
+  //   currentTime: PropTypes.number,
+  //   endTime: PropTypes.number,
+  //   startTime: PropTypes.number,
+  //   progressEventDelay: PropTypes.number,
+  //   source: PropTypes.string.isRequired,
+  //   resizeMode: PropTypes.string
+  // };
   static defaultProps = {
     onChange: noop,
   };
 
-  constructor(props) {
+  constructor(props:{
+    // ...ViewPropTypes,
+    play?: boolean,
+    replay?: boolean,
+    volume?: number,
+    onChange?: Function,
+    currentTime?: number,
+    endTime?: number,
+    startTime?: number,
+    progressEventDelay?: number,
+    source: string,
+    resizeMode?: string
+  }) {
     super(props);
     this._receiveVideoInfo = this._receiveVideoInfo.bind(this);
     this._receivePreviewImage = this._receivePreviewImage.bind(this);

@@ -10,7 +10,7 @@ import type {
   format,
   compressOptions,
   cropOptions
-} from './types';
+} from './types.ios';
 
 export class ProcessingManager {
   static trim(source: sourceType, options: trimOptions = {}): Promise<string> {

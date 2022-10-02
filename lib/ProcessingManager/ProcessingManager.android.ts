@@ -8,7 +8,7 @@ import type {
   previewMaxSize,
   format,
   cropOptions
-} from './types';
+} from './types.android';
 
 import { getActualSource, numberToHHMMSS } from '../utils';
 
