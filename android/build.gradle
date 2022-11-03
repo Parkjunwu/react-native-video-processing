@@ -30,7 +30,8 @@ configurations.all {
 dependencies {
   implementation 'com.facebook.react:react-native:+'
   // implementation 'com.yqritc:android-scalablevideoview:1.0.4'
-  implementation 'com.github.MatrixFrog:android-scalablevideoview:v1.0.4-jitpack'
+  // implementation 'com.github.MatrixFrog:android-scalablevideoview:v1.0.4-jitpack'
+  implementation 'com.github.adityaxjha:Android-ScalableVideoView:10e7b4da8b'
   implementation 'com.googlecode.mp4parser:isoparser:1.1.20'
   implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever:1.0.14'
   // implementation "com.google.android.gms:play-services-gcm:12.+"
@@ -40,6 +41,6 @@ allprojects {
   repositories {
     mavenLocal()
     // jcenter()
-    maven { url 'https://www.jitpack.io' }
+    // maven { url 'https://www.jitpack.io' }
   }
 }
